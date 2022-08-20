@@ -21,15 +21,35 @@
             font-size: large;
             border-radius: 15px;
         }
+        #result {
+            padding: 20px;
+        }
+        #scoreboard {
+            border: 2px solid blueviolet;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            color: blueviolet;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 20px;
+        }
     </style>
+    
 </head>
 <body>
     
     <h1>ROCKPAPERSCISSORS</h1>
-    <p>CHOICE</p>
+    <p>MAKE CHOICE</p>
     <input id = 'playerSelector'></input>
     <button type = 'submit'>SUBMIT</button>
-    <script src = 'javascript.js'>   
-    </script>
+    <div id = "result">
+    </div>
+    <div id  = 'scoreboard'>
+        0 - 0
+    </div>
+    
+    
 </body>
+<script src = 'javascript.js'>   
+</script>
 </html>

@@ -3,6 +3,9 @@ let getComputerChoice = () => {
     return (randCounter === 1) ? 'rock' :
     (randCounter === 2) ? 'paper' : 'scissors';
 }
+let resultDiv = document.getElementById('result');
+
+let scoreBoard = document.getElementById('scoreboard');
 
 let playRound = (playerSelection, computerSelection) => {
     if (playerSelection == 'rock') {
@@ -38,7 +41,9 @@ let playRound = (playerSelection, computerSelection) => {
             return 'LOSE: SCISSORS < ROCK'
         }
     } else {
-        return 'NAW'
+        return 'NAW: CHECK SPELLING'
     }
 }
-console.log(playRound('scissors', getComputerChoice()));
+
+resultDiv.textContent = playRound('scissors', getComputerChoice())
+
