@@ -13,6 +13,9 @@
             align-items: center;
             font-family: sans-serif;
         }
+        h1 {
+            margin-bottom: 10px;
+        }
         button {
             background-color: black;
             color: white;
@@ -23,6 +26,7 @@
         }
         #result {
             padding: 20px;
+            text-align: center;
         }
         #scoreboard {
             border: 2px solid blueviolet;
@@ -33,12 +37,17 @@
             font-family: 'Courier New', Courier, monospace;
             font-size: 20px;
         }
+        #final {
+            color: blueviolet;
+            font-weight: bold;
+            font-size: large;
+        }
     </style>
     
 </head>
 <body>
     <h1>ROCKPAPERSCISSORS</h1>
-    <p>MAKE CHOICE</p>
+    <p>FIRST TO 3</p>
     <input id = 'playerSelector'></input>
     <button type = 'submit' id = 'submit' >SUBMIT</button>
     <div id  = 'scoreboard'>

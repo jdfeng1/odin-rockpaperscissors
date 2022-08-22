@@ -66,7 +66,7 @@ let submitChoice = () => {
         return;
     }
 
-    resultDiv.textContent = playRound(playerSelector.value, getComputerChoice());
+    resultDiv.textContent = playRound(playerSelector.value.toLowerCase(), getComputerChoice());
     playerSelector.value = '';
 
     if (resultDiv.textContent.slice(0,1) == 'W') {
