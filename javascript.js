@@ -81,8 +81,10 @@ let submitChoice = () => {
         resultDiv.textContent = 'GAME OVER';
         if (playerScore.textContent == '3') {
             final.textContent = 'YOU WIN';
+            final.style.color = 'green';
         } else {
             final.textContent = 'YOU LOSE';
+            final.style.color = 'red';
         }
         playerSelector.disabled = true;
         submit.textContent = 'RESET';
