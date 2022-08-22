@@ -17,7 +17,7 @@
             background-color: black;
             color: white;
             padding: 16px;
-            margin-top: 20px;
+            margin: 20px;
             font-size: large;
             border-radius: 15px;
         }
@@ -41,14 +41,15 @@
     <h1>ROCKPAPERSCISSORS</h1>
     <p>MAKE CHOICE</p>
     <input id = 'playerSelector'></input>
-    <button type = 'submit'>SUBMIT</button>
+    <button id = 'submit'>SUBMIT</button>
+    <div id  = 'scoreboard'>
+        <span id = 'playerScore'></span> - <span id = 'computerScore'></span>
+    </div>
     <div id = "result">
     </div>
-    <div id  = 'scoreboard'>
-        0 - 0
+    <div id = 'final'>
+        
     </div>
-    
-    
 </body>
 <script src = 'javascript.js'>   
 </script>

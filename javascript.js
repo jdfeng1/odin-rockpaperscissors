@@ -4,10 +4,19 @@ let getComputerChoice = () => {
     (randCounter === 2) ? 'paper' : 'scissors';
 }
 let resultDiv = document.getElementById('result');
-
+let playerSelector = document.getElementById('playerSelector');
+let submit = document.getElementById('submit');
 let scoreBoard = document.getElementById('scoreboard');
+let playerScore = document.getElementById("playerScore");
+let computerScore = document.getElementById("computerScore")
+let final = document.getElementById('final');
+
+playerScore.textContent = '0';
+computerScore.textContent = '0';
+
 
 let playRound = (playerSelection, computerSelection) => {
+
     if (playerSelection == 'rock') {
         if (computerSelection == 'paper') {
             return 'LOSE: ROCK < PAPER'
@@ -45,5 +54,38 @@ let playRound = (playerSelection, computerSelection) => {
     }
 }
 
-resultDiv.textContent = playRound('scissors', getComputerChoice())
+let submitChoice = () => {
+    resultDiv.textContent = playRound(playerSelector.value, getComputerChoice());
+    playerSelector.value = '';
 
+    if (resultDiv.textContent.slice(0,1) == 'W') {
+        playerScore.textContent = parseInt(playerScore.textContent) + 1;
+    } else if (resultDiv.textContent.slice(0,1) == 'L') {
+        computerScore.textContent = parseInt(computerScore.textContent) + 1;
+    }
+
+    if (playerScore.textContent == '3' || computerScore.textContent == '3') {
+        resultDiv.textContent = 'GAME OVER';
+        if (playerScore.textContent == '3') {
+            final.textContent = 'YOU WIN';
+        } else {
+            final.textContent = 'YOU LOSE';
+        }
+        playerSelector.disabled = true;
+        submit.textContent = 'RESET';
+    }
+}
+
+let resetGame = () => {
+    playerScore.textContent = 0;
+    computerScore.textContent = 0;
+    final.textContent = '';
+    submit.textContent = 'SUBMIT';
+    playerSelector.disabled = false;
+}
+
+if (submit.textContent == 'RESET') {
+    submit.addEventListener('click', resetGame);
+}   else {
+    submit.addEventListener('click', submitChoice);
+}
