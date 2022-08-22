@@ -16,7 +16,6 @@ computerScore.textContent = '0';
 
 
 let playRound = (playerSelection, computerSelection) => {
-
     if (playerSelection == 'rock') {
         if (computerSelection == 'paper') {
             return 'LOSE: ROCK < PAPER'
@@ -50,11 +49,22 @@ let playRound = (playerSelection, computerSelection) => {
             return 'LOSE: SCISSORS < ROCK'
         }
     } else {
-        return 'NAW: CHECK SPELLING'
+        return 'CHECK SPELLING'
     }
 }
 
 let submitChoice = () => {
+
+    if (submit.textContent == 'RESET') {
+        submit.textContent = 'SUBMIT';
+        playerScore.textContent = 0;
+        computerScore.textContent = 0;
+        resultDiv.textContent = '';
+        final.textContent = '';
+        playerSelector.disabled = false;
+        return;
+    }
+
     resultDiv.textContent = playRound(playerSelector.value, getComputerChoice());
     playerSelector.value = '';
 
@@ -76,15 +86,5 @@ let submitChoice = () => {
     }
 }
 
-let resetGame = () => {
-    if (submit.textContent == 'RESET') {
-    playerScore.textContent = 0;
-    computerScore.textContent = 0;
-    final.textContent = '';
-    submit.textContent = 'SUBMIT';
-    playerSelector.disabled = false;
-    }
-}
 
-submit.addEventListener('click', resetGame);
 submit.addEventListener('click', submitChoice);
