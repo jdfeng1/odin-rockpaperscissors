@@ -14,7 +14,7 @@ let final = document.getElementById('final');
 
 playerScore.textContent = '0';
 computerScore.textContent = '0';
-
+playerSelector.focus();
 
 let playRound = (playerSelection, computerSelection) => {
     if (playerSelection == 'rock') {
@@ -55,7 +55,7 @@ let playRound = (playerSelection, computerSelection) => {
 }
 
 let submitChoice = () => {
-
+    playerSelector.focus();
     if (submit.textContent == 'RESET') {
         submit.textContent = 'SUBMIT';
         playerScore.textContent = 0;
@@ -63,8 +63,10 @@ let submitChoice = () => {
         resultDiv.textContent = '';
         final.textContent = '';
         playerSelector.disabled = false;
+        playerSelector.focus();
         return;
     }
+    
 
     resultDiv.textContent = playRound(playerSelector.value.toLowerCase(), getComputerChoice());
     playerSelector.value = '';
