@@ -3,6 +3,7 @@ let getComputerChoice = () => {
     return (randCounter === 1) ? 'rock' :
     (randCounter === 2) ? 'paper' : 'scissors';
 }
+
 let resultDiv = document.getElementById('result');
 let playerSelector = document.getElementById('playerSelector');
 let submit = document.getElementById('submit');
@@ -86,5 +87,10 @@ let submitChoice = () => {
     }
 }
 
-
+function checkSubmit(e) {
+    if (e.keyCode == 13) {
+        submit.click();
+    }
+}
+addEventListener('keyup',checkSubmit);
 submit.addEventListener('click', submitChoice);
