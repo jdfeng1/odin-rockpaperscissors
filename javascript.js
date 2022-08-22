@@ -77,15 +77,14 @@ let submitChoice = () => {
 }
 
 let resetGame = () => {
+    if (submit.textContent == 'RESET') {
     playerScore.textContent = 0;
     computerScore.textContent = 0;
     final.textContent = '';
     submit.textContent = 'SUBMIT';
     playerSelector.disabled = false;
+    }
 }
 
-if (submit.textContent == 'RESET') {
-    submit.addEventListener('click', resetGame);
-}   else {
-    submit.addEventListener('click', submitChoice);
-}
+submit.addEventListener('click', resetGame);
+submit.addEventListener('click', submitChoice);
