@@ -14,7 +14,7 @@ let final = document.getElementById('final');
 
 playerScore.textContent = '0';
 computerScore.textContent = '0';
-playerSelector.focus();
+
 
 let playRound = (playerSelection, computerSelection) => {
     if (playerSelection == 'rock') {
@@ -54,8 +54,20 @@ let playRound = (playerSelection, computerSelection) => {
     }
 }
 
-let submitChoice = () => {
-    playerSelector.focus();
+let submitChoice = (event) => {
+    let selection = '';
+    if (event.target.nodeName == 'BUTTON') {
+        if (event.target.id == 'paper') {
+            selection = 'paper';
+        }
+        if (event.target.id == 'rock') {
+            selection = 'rock';
+        }
+        if (event.target.id == 'scissors') {
+            selection = 'scissors';
+        }
+    }
+    
     if (submit.textContent == 'RESET') {
         submit.textContent = 'SUBMIT';
         playerScore.textContent = 0;
@@ -63,13 +75,13 @@ let submitChoice = () => {
         resultDiv.textContent = '';
         final.textContent = '';
         playerSelector.disabled = false;
-        playerSelector.focus();
+        
         return;
     }
     
 
-    resultDiv.textContent = playRound(playerSelector.value.toLowerCase(), getComputerChoice());
-    playerSelector.value = '';
+    resultDiv.textContent = playRound(selection, getComputerChoice());
+    
 
     if (resultDiv.textContent.slice(0,1) == 'W') {
         playerScore.textContent = parseInt(playerScore.textContent) + 1;
@@ -91,10 +103,6 @@ let submitChoice = () => {
     }
 }
 
-function checkSubmit(e) {
-    if (e.keyCode == 13) {
-        submit.click();
-    }
-}
-addEventListener('keyup',checkSubmit);
-submit.addEventListener('click', submitChoice);
+
+
+playerSelector.addEventListener('click', submitChoice);
