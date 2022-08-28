@@ -62,15 +62,17 @@ let submitChoice = (event) => {
     if (event.target.nodeName == 'BUTTON') {
         if (event.target.id == 'paper') {
             selection = 'paper';
+            paperButton.classList.add('clicking');
         }
         if (event.target.id == 'rock') {
             selection = 'rock';
+            rockButton.classList.add('clicking');
         }
         if (event.target.id == 'scissors') {
             selection = 'scissors';
+            scissorsButton.classList.add('clicking');
         }
     }
-    
 
     resultDiv.textContent = playRound(selection, getComputerChoice());
     
@@ -106,6 +108,9 @@ function reset() {
     resetButton.style.visibility = 'hidden';
     return;
 }
+
+const buttons = Array.from(document.querySelectorAll('.play'));
+  buttons.forEach(play => play.addEventListener('transitionend', (e) => e.target.classList.remove('clicking')));
 
 
 playerSelector.addEventListener('click', submitChoice);

@@ -17,6 +17,8 @@
             flex-direction: column;
             align-items: center;
             font-family: 'Roboto', sans-serif;
+            background-color: rgb(35, 0, 68);
+            color: white;
         }
         h1 {
             margin-bottom: 10px;
@@ -31,25 +33,31 @@
             color: white;
             border: 2px solid white;
             visibility:hidden;
+            transition: 0.1s;
+        }
+        #reset:hover {
+            background-color: #00ffd5;
+            color:rgb(35, 0, 68);
         }
         #result {
             padding: 20px;
             text-align: center;
+            font-size:large;
         }
         #scoreboard {
-            border: 2px solid blueviolet;
+            border: 2px solid white;
             padding: 15px;
-            background-color: white;
+            background-color: blueviolet;
             border-radius: 5px;
-            color: blueviolet;
-            margin-top: 10px;
+            color: white;
+            margin: 10px 0 10px 0;
             font-family: 'Courier New', Courier, monospace;
             font-size: 30px;
         }
         #final {
             color: blueviolet;
             font-weight: bold;
-            font-size: large;
+            font-size: 40px;
         }
         #playerSelector {
             display: flex;
@@ -65,8 +73,14 @@
             margin: 20px;
             font-size: large;
             font-weight: bold;
-            border-radius: 15px;
+            border-radius: 10px;
+            border-width: 5px;
             border-color: blueviolet;
+            transition: all 0.05s ease;
+        }
+        .clicking {
+            transform: scale(1.05);
+            border-color: #00ffd5;
         }
         @media only screen and (max-width: 700px) {
             #playerSelector {
@@ -78,7 +92,7 @@
 </head>
 <body>
     <h1>ROCK//PAPER//SCISSORS</h1>
-    <p>FIRST TO 3</p>
+    <!--<p>FIRST TO 3</p>-->
     <div id = 'playerSelector'>
         <button class = 'play' id = 'rock'>ROCK</button>
         <button class = 'play' id = 'paper'>PAPER</button>
