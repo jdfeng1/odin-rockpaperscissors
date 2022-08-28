@@ -6,7 +6,10 @@ let getComputerChoice = () => {
 
 let resultDiv = document.getElementById('result');
 let playerSelector = document.getElementById('playerSelector');
-let submit = document.getElementById('submit');
+let rockButton = document.querySelector('#rock');
+let paperButton = document.querySelector('#paper');
+let scissorsButton = document.querySelector('#scissors');
+let resetButton = document.getElementById('reset');
 let scoreBoard = document.getElementById('scoreboard');
 let playerScore = document.getElementById("playerScore");
 let computerScore = document.getElementById("computerScore")
@@ -68,17 +71,6 @@ let submitChoice = (event) => {
         }
     }
     
-    if (submit.textContent == 'RESET') {
-        submit.textContent = 'SUBMIT';
-        playerScore.textContent = 0;
-        computerScore.textContent = 0;
-        resultDiv.textContent = '';
-        final.textContent = '';
-        playerSelector.disabled = false;
-        
-        return;
-    }
-    
 
     resultDiv.textContent = playRound(selection, getComputerChoice());
     
@@ -98,11 +90,24 @@ let submitChoice = (event) => {
             final.textContent = 'YOU LOSE';
             final.style.color = 'red';
         }
-        playerSelector.disabled = true;
-        submit.textContent = 'RESET';
+        rockButton.disabled = true;
+        paperButton.disabled = true;
+        scissorsButton.disabled = true;
+        resetButton.style.visibility = 'visible';
     }
 }
 
+function reset() {
+    playerScore.textContent = 0;
+    computerScore.textContent = 0;
+    resultDiv.textContent = '';
+    final.textContent = '';        rockButton.disabled = false;
+    paperButton.disabled = false;        scissorsButton.disabled = false;
+    resetButton.style.visibility = 'hidden';
+    return;
+}
 
 
 playerSelector.addEventListener('click', submitChoice);
+
+resetButton.addEventListener('click', reset);
