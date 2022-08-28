@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<script src = 'javascript.js' defer>   
+</script>
     <style>
         body {
             display: flex;
@@ -19,7 +21,7 @@
         h1 {
             margin-bottom: 10px;
         }
-        button {
+        #submit {
             background-color: black;
             color: white;
             width: 120px;
@@ -47,13 +49,29 @@
             font-weight: bold;
             font-size: large;
         }
+        #playerSelector {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        button.play {
+            width: 100px;
+            flex: 1;
+            padding: 16px;
+            margin: 20px;
+            border-radius: 8px;
+        }
     </style>
     
 </head>
 <body>
     <h1>ROCK//PAPER//SCISSORS</h1>
     <p>FIRST TO 3</p>
-    <input id = 'playerSelector'></input>
+    <div id = 'playerSelector'>
+        <button class = 'play' id = 'rock'>ROCK</button>
+        <button class = 'play' id = 'paper'>PAPER</button>
+        <button class = 'play' id = 'scissors'>SCISSORS</button>
+    </div>
     <button type = 'submit' id = 'submit' >SUBMIT</button>
     <div id  = 'scoreboard'>
         <span id = 'playerScore'></span> - <span id = 'computerScore'></span>
@@ -63,6 +81,5 @@
     <div id = 'final'>
     </div>
 </body>
-<script src = 'javascript.js'>   
-</script>
+
 </html>
